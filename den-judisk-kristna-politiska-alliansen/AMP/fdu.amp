@@ -1,6 +1,6 @@
 const GetStrSig = func(): &u8;
 const GetStr: GetStrSig = func(): &u8 {
-    return "Hello, indirect calls!";
+    return "FDU, indirect calls!";
 };
 
 const GetGetStr = func(): GetStrSig {
