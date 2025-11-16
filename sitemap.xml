@@ -1,8 +1,21 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- ... -->
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://multireligionvalsystem.eu.org/</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://multireligionvalsystem.eu.org/Overview-of-the-Four-Major-Religions.html</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Continue for each page... -->
 </urlset>
+
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://a-multi-religion-election.multireligionvalsystem.eu.org/</loc></url>
   <url><loc>https://a-multi-religion-election.multireligionvalsystem.eu.org/foundation</loc></url>
