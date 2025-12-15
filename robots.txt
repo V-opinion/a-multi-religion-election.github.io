@@ -53,4 +53,5 @@ Disallow: /tmp/
 Disallow: /backup/
 
 # Sitemap for complete index coverage
+Allow: /
 sitemap: https://multireligionvalsystem.eu.org/sitemap.xml
