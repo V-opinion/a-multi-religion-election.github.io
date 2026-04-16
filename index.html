@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Religion Election (MRE) — Multi-Religion Election System</title>
+  <meta name="description" content="Multi-Religion Election (MRE) is the practical application of the Multi-Religion Election System — electing faith representatives to resolve conflicts and achieve separation of state, church, religion and politics.">
+  <meta name="keywords" content="Multi-Religion Election, MRE, Faith Representative Chamber, FRC, separation of state and church, religion and politics, Israel Palestine conflict, religious democracy, Sweden, EU Parliament election, voting rights 16, gender equality religious representation, multi-religion city, nominating committee, religious communities, Jewish Muslim Christian Buddhist Hindu">
+  <meta name="author" content="Multi-Religion Election System">
+  <meta property="og:title" content="Multi-Religion Election (MRE)">
+  <meta property="og:description" content="A democratic election system for religious communities — resolving the Israel-Palestine conflict and achieving separation of state, church, religion and politics.">
+  <meta property="og:url" content="https://a-multi-religion-election.multireligionvalsystem.eu.org/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://a-multi-religion-election.multireligionvalsystem.eu.org/">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            page: '#050505',
+            card: '#0a0a0a',
+            primary: '#f97316',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #020202;
+      color: #e2e8f0;
+      font-weight: 300;
+      line-height: 1.625;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #050505; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+    /* Gradient text */
+    .gradient-title {
+      background: linear-gradient(to bottom, #ffffff 40%, #71717a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-accent {
+      background: linear-gradient(to right, #fed7aa, rgba(255,237,213,0.8), #fde68a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Spotlight card effect */
+    .spotlight-card {
+      position: relative;
+      background: #0a0a0a;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .spotlight-card:hover {
+      border-color: rgba(255,255,255,0.15);
+    }
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(249,115,22,0.06), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .spotlight-card:hover::before {
+      opacity: 1;
+    }
+    .spotlight-card > * { position: relative; z-index: 2; }
+
+    /* Shine button */
+    .shine-button {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.7s ease-in-out;
+    }
+    .shine-button:hover::before {
+      left: 200%;
+    }
+
+    /* Grid overlay */
+    .grid-overlay {
+      background-size: 50px 50px;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+      mask-image: linear-gradient(to bottom, black 10%, transparent 90%);
+      -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 90%);
+    }
+
+    /* Tag pill */
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 0.875rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(249,115,22,0.05);
+      color: #fdba74;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .tag-pill:hover {
+      border-color: rgba(249,115,22,0.3);
+      background: rgba(249,115,22,0.12);
+      color: #ffffff;
+    }
+
+    /* Section anchor offset */
+    section[id] {
+      scroll-margin-top: 100px;
+    }
+
+    /* Pulse dot */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .pulse-dot {
+      animation: pulse-dot 2s cubic-bezier(0.4,0,0.6,1) infinite;
+    }
+
+    /* Fade in animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .fade-up-d1 { animation-delay: 0.1s; }
+    .fade-up-d2 { animation-delay: 0.2s; }
+    .fade-up-d3 { animation-delay: 0.3s; }
+    .fade-up-d4 { animation-delay: 0.4s; }
+    .fade-up-d5 { animation-delay: 0.5s; }
+
+    /* Nav link underline */
+    .nav-link {
+      position: relative;
+      color: #71717a;
+      transition: color 0.3s;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+    .nav-link:hover { color: #ffffff; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #f97316;
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Timeline line */
+    .timeline-line {
+      position: absolute;
+      left: 1.25rem;
+      top: 2.5rem;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(249,115,22,0.4), rgba(249,115,22,0.05));
+    }
+
+    /* Number circle */
+    .number-circle {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.3);
+      color: #f97316;
+      flex-shrink: 0;
+    }
+
+    /* Mobile nav */
+    .mobile-nav {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .mobile-nav.open {
+      max-height: 400px;
+    }
+
+    /* Faith badge */
+    .faith-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grid overlay -->
+  <div class="fixed inset-0 grid-overlay pointer-events-none z-0"></div>
+
+  <!-- Background glow -->
+  <div class="fixed top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-orange-500/[0.03] rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-2xl">
+    <div class="bg-black/60 backdrop-blur-xl border border-white/10 rounded-full py-2 pl-6 pr-2 flex items-center justify-between shadow-2xl">
+      <a href="#" class="flex items-center gap-2 text-white font-medium text-sm">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+          <i data-lucide="vote" class="w-3.5 h-3.5 text-white"></i>
+        </div>
+        <span class="hidden sm:inline">MRE</span>
+      </a>
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#frc" class="nav-link">FRC</a>
+        <a href="#process" class="nav-link">Process</a>
+        <a href="#mandate" class="nav-link">Mandate</a>
+        <a href="#safeguards" class="nav-link">Safeguards</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://multireligionvalsystem.eu.org/" target="_blank" rel="noopener" class="shine-button bg-white text-black text-xs font-semibold px-4 py-2 rounded-full hover:scale-105 active:scale-95 transition-transform duration-200" style="box-shadow: 0 0 30px -5px rgba(255,255,255,0.3);">
+          MRE System
+        </a>
+        <button id="mobile-toggle" class="md:hidden w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/20 transition-colors">
+          <i data-lucide="menu" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile nav -->
+    <div id="mobile-menu" class="mobile-nav md:hidden mt-2 bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-4">
+      <div class="flex flex-col gap-3">
+        <a href="#overview" class="nav-link mobile-nav-link">Overview</a>
+        <a href="#frc" class="nav-link mobile-nav-link">FRC</a>
+        <a href="#process" class="nav-link mobile-nav-link">Process</a>
+        <a href="#mandate" class="nav-link mobile-nav-link">Mandate</a>
+        <a href="#safeguards" class="nav-link mobile-nav-link">Safeguards</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="relative pt-40 pb-20 text-center z-10 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Tags -->
+      <div class="fade-up fade-up-d1 flex flex-wrap justify-center gap-2 mb-8">
+        <span class="tag-pill"><span class="w-1.5 h-1.5 rounded-full bg-orange-500 pulse-dot"></span> Religious Democracy</span>
+        <span class="tag-pill"><i data-lucide="scale" class="w-3 h-3"></i> Separation of Powers</span>
+        <span class="tag-pill"><i data-lucide="heart-handshake" class="w-3 h-3"></i> Peace Building</span>
+        <span class="tag-pill"><i data-lucide="flag" class="w-3 h-3"></i> Sweden</span>
+      </div>
+
+      <h1 class="fade-up fade-up-d2 gradient-title text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter leading-[1.1] mb-6">
+        Multi-Religion<br>
+        <span class="gradient-accent">Election</span>
+      </h1>
+
+      <p class="fade-up fade-up-d3 text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+        The practical application of the Multi-Religion Election System — electing faith representatives to the
+        <strong class="text-zinc-200 font-medium">Faith Representative Chamber (FRC)</strong> to resolve the Israel-Palestine conflict and achieve the separation of state, church, religion and politics.
+      </p>
+
+      <div class="fade-up fade-up-d4 flex flex-wrap justify-center gap-4">
+        <a href="#overview" class="shine-button bg-orange-600 text-white text-sm font-semibold px-8 py-4 rounded-full hover:scale-105 active:scale-95 transition-transform duration-200" style="box-shadow: 0 0 15px rgba(249,115,22,0.3);">
+          How It Works
+        </a>
+        <a href="#frc" class="bg-white/5 border border-white/10 text-white text-sm font-semibold px-8 py-4 rounded-full hover:bg-white/10 hover:border-white/20 transition-all duration-200">
+          The FRC Explained
+        </a>
+      </div>
+
+      <!-- Key stats -->
+      <div class="fade-up fade-up-d5 mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-medium text-white">28+</div>
+          <div class="text-xs text-zinc-500 mt-1 uppercase tracking-widest">Representatives</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-medium text-white">16</div>
+          <div class="text-xs text-zinc-500 mt-1 uppercase tracking-widest">Voting Age</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-medium text-white">5</div>
+          <div class="text-xs text-zinc-500 mt-1 uppercase tracking-widest">Year Term</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-medium text-white">0</div>
+          <div class="text-xs text-zinc-500 mt-1 uppercase tracking-widest">Party Influence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OVERVIEW ========== -->
+  <section id="overview" class="relative py-32 z-10 px-4">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section label -->
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+          <i data-lucide="book-open" class="w-4 h-4 text-orange-400"></i>
+        </div>
+        <span class="text-xs uppercase tracking-widest text-zinc-500 font-semibold">Overview</span>
+      </div>
+      <h2 class="gradient-title text-3xl md:text-5xl font-medium tracking-tighter mb-6">
+        What is the Multi-Religion Election?
+      </h2>
+      <p class="text-zinc-400 text-lg max-w-3xl mb-16 font-light">
+        MRE is the practical application of the Multi-Religion Election System, defining how the election is conducted in practice — covering voting rights, mandates, candidate selection and representation.
+      </p>
+
+      <!-- Core principle cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="spotlight-card p-8">
+          <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mb-6">
+            <i data-lucide="shield-ban" class="w-5 h-5 text-orange-400"></i>
+          </div>
+          <h3 class="text-xl font-medium text-white mb-3">No Parliamentary Parties</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            In contrast to church elections, the Multi-Religion Election <strong class="text-zinc-200">prohibits parliamentary parties from participating</strong>. This completes the separation between state and church, and religion and politics.
+          </p>
+          <div class="mt-5 pt-5 border-t border-white/5">
+            <a href="https://www.regeringen.se/informationsmaterial/2019/09/skillnaden-mellan-stat-och-kyrka/" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              Swedish separation of church and state
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="spotlight-card p-8">
+          <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mb-6">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-orange-400"></i>
+          </div>
+          <h3 class="text-xl font-medium text-white mb-3">Democracy Requirement</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Only religious communities that <strong class="text-zinc-200">want to introduce democracy</strong> in their religious community may participate in MRE and are eligible for the Multi-Religion City.
+          </p>
+          <div class="mt-5 pt-5 border-t border-white/5">
+            <a href="https://www.osce.org/odihr/elections/39703" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              OSCE: Freedom of religion or belief
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="spotlight-card p-8">
+          <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mb-6">
+            <i data-lucide="users" class="w-5 h-5 text-orange-400"></i>
+          </div>
+          <h3 class="text-xl font-medium text-white mb-3">Universal Voting Rights</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Voting rights from <strong class="text-zinc-200">16 years of age regardless of religion</strong>. Every eligible voter can participate in electing representatives to the FRC.
+          </p>
+          <div class="mt-5 pt-5 border-t border-white/5">
+            <a href="https://www.valmyndigheten.se/en/voting-rights/" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              Swedish Election Authority: Voting rights
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FRC STRUCTURE ========== -->
+  <section id="frc" class="relative py-32 z-10 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+          <i data-lucide="landmark" class="w-4 h-4 text-orange-400"></i>
+        </div>
+        <span class="text-xs uppercase tracking-widest text-zinc-500 font-semibold">Structure</span>
+      </div>
+      <h2 class="gradient-title text-3xl md:text-5xl font-medium tracking-tighter mb-6">
+        The Faith Representative Chamber
+      </h2>
+      <p class="text-zinc-400 text-lg max-w-3xl mb-16 font-light">
+        Those elected represent all religious communities in Sweden in the FRC. Each community elects 4 representatives — with gender-balanced composition.
+      </p>
+
+      <!-- Faith community grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <!-- Jewish -->
+        <div class="spotlight-card p-6 flex items-start gap-4">
+          <div class="faith-badge bg-blue-500/10 border border-blue-500/20 text-blue-400">✡</div>
+          <div>
+            <h4 class="text-white font-medium mb-1">Jewish</h4>
+            <p class="text-zinc-500 text-sm">4 representatives</p>
+            <p class="text-zinc-600 text-xs mt-1">2 men · 3 women*</p>
+          </div>
+        </div>
+        <!-- Muslim -->
+        <div class="spotlight-card p-6 flex items-start gap-4">
+          <div class="faith-badge bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">☪</div>
+          <div>
+            <h4 class="text-white font-medium mb-1">Muslim</h4>
+            <p class="text-zinc-500 text-sm">4 representatives</p>
+            <p class="text-zinc-600 text-xs mt-1">2 men · 3 women*</p>
+          </div>
+        </div>
+        <!-- Christian -->
+        <div class="spotlight-card p-6 flex items-start gap-4">
+          <div class="faith-badge bg-purple-500/10 border border-purple-500/20 text-purple-400">✝</div>
+          <div>
+            <h4 class="text-white font-medium mb-1">Christian</h4>
+            <p class="text-zinc-500 text-sm">4 representatives</p>
+            <p class="text-zinc-600 text-xs mt-1">2 men · 3 women*</p>
+          </div>
+        </div>
+        <!-- Buddhist -->
+        <div class="spotlight-card p-6 flex items-start gap-4">
+          <div class="faith-badge bg-amber-500/10 border border-amber-500/20 text-amber-400">☸</div>
+          <div>
+            <h4 class="text-white font-medium mb-1">Buddhist</h4>
+            <p class="text-zinc-500 text-sm">4 representatives</p>
+            <p class="text-zinc-600 text-xs mt-1">2 men · 3 women*</p>
+          </div>
+        </div>
+        <!-- Hindu -->
+        <div class="spotlight-card p-6 flex items-start gap-4">
+          <div class="faith-badge bg-orange-500/10 border border-orange-500/20 text-orange-400">🕉</div>
+          <div>
+            <h4 class="text-white font-medium mb-1">Hindu</h4>
+            <p class="text-zinc-500 text-sm">4 representatives</p>
+            <p class="text-zinc-600 text-xs mt-1">2 men · 3 women*</p>
+          </div>
+        </div>
+        <!-- Non-religious -->
+        <div class="spotlight-card p-6 flex items-start gap-4">
+          <div class="faith-badge bg-zinc-500/10 border border-zinc-500/20 text-zinc-400">∅</div>
+          <div>
+            <h4 class="text-white font-medium mb-1">Non-Religious</h4>
+            <p class="text-zinc-500 text-sm">4 representatives</p>
+            <p class="text-zinc-600 text-xs mt-1">2 men · 3 women*</p>
+          </div>
+        </div>
+        <!-- Additional -->
+        <div class="spotlight-card p-6 flex items-start gap-4 border-dashed">
+          <div class="faith-badge bg-white/5 border border-white/10 text-zinc-500">+</div>
+          <div>
+            <h4 class="text-zinc-400 font-medium mb-1">Additional</h4>
+            <p class="text-zinc-600 text-sm">May be considered</p>
+            <p class="text-zinc-700 text-xs mt-1">Other communities</p>
+          </div>
+        </div>
+        <!-- Gender info -->
+        <div class="spotlight-card p-6 flex items-start gap-4 bg-orange-500/[0.02] border-orange-500/10">
+          <div class="faith-badge bg-orange-500/10 border border-orange-500/20 text-orange-400">⚖</div>
+          <div>
+            <h4 class="text-white font-medium mb-1">Gender Equality</h4>
+            <p class="text-zinc-500 text-sm">2 men, 3 women per group</p>
+            <p class="text-zinc-600 text-xs mt-1">Increased women's representation</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-zinc-600 text-xs max-w-xl">* Each group of 4 includes 2 men and 3 women (5 total with gender-uneven distribution ensuring female majority to promote gender equality — the exact per-community composition follows the 2 men / 3 women ratio as specified in the MRE framework.)</p>
+
+      <!-- Timeline info -->
+      <div class="mt-16 spotlight-card p-8 md:p-10">
+        <div class="flex flex-col md:flex-row md:items-center gap-6">
+          <div class="flex-1">
+            <h3 class="text-xl font-medium text-white mb-3">Election Timing & Term</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              The election to the FRC is proposed to take place <strong class="text-zinc-200">in connection with the elections to the EU Parliament</strong>. Those elected serve a <strong class="text-zinc-200">5-year term</strong>. If elected members fail to achieve solutions after half the term has passed, they may be replaced with designated reserves.
+            </p>
+          </div>
+          <div class="flex flex-col items-center gap-2 bg-white/5 rounded-2xl p-6 border border-white/5 min-w-[140px]">
+            <i data-lucide="calendar" class="w-6 h-6 text-orange-400"></i>
+            <div class="text-2xl font-medium text-white">5</div>
+            <div class="text-xs text-zinc-500 uppercase tracking-wider">Year Term</div>
+          </div>
+        </div>
+        <div class="mt-6 pt-6 border-t border-white/5">
+          <a href="https://www.europarl.europa.eu/elections/en/" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+            European Parliament Elections
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ELECTION PROCESS ========== -->
+  <section id="process" class="relative py-32 z-10 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+          <i data-lucide="list-checks" class="w-4 h-4 text-orange-400"></i>
+        </div>
+        <span class="text-xs uppercase tracking-widest text-zinc-500 font-semibold">Process</span>
+      </div>
+      <h2 class="gradient-title text-3xl md:text-5xl font-medium tracking-tighter mb-6">
+        How the Election Works
+      </h2>
+      <p class="text-zinc-400 text-lg max-w-3xl mb-16 font-light">
+        A step-by-step breakdown of the nomination, election and implementation process.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Timeline steps -->
+        <div class="relative">
+          <div class="timeline-line"></div>
+
+          <!-- Step 1 -->
+          <div class="relative flex gap-6 pb-10">
+            <div class="number-circle">1</div>
+            <div class="pt-1">
+              <h4 class="text-white font-medium mb-2">Nominating Committee Elected</h4>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                Each religious community elects a <strong class="text-zinc-200">nominating committee</strong> (valberedning). For example, the Jewish religious communities elect a committee that will democratically select suitable candidates.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative flex gap-6 pb-10">
+            <div class="number-circle">2</div>
+            <div class="pt-1">
+              <h4 class="text-white font-medium mb-2">Candidates Selected</h4>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                The nominating committee ensures that <strong class="text-zinc-200">4 suitable candidates</strong> are selected to represent their religious community (2 men, 3 women). The same procedure applies to Muslims, Christians, Buddhists, Hindus and non-religious groups.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative flex gap-6 pb-10">
+            <div class="number-circle">3</div>
+            <div class="pt-1">
+              <h4 class="text-white font-medium mb-2">Ballot Papers Printed</h4>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                The <strong class="text-zinc-200">Electoral Authority</strong> arranges for the printing of ballot papers after orders from authorized religious communities.
+              </p>
+              <a href="https://www.valmyndigheten.se/en/" target="_blank" rel="noopener" class="mt-2 text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+                Swedish Election Authority
+              </a>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative flex gap-6 pb-10">
+            <div class="number-circle">4</div>
+            <div class="pt-1">
+              <h4 class="text-white font-medium mb-2">Campaign & Voting</h4>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                Religious community premises are used as <strong class="text-zinc-200">voting locations</strong> and for information about communities and candidates. Mass media broadcasts the Multi-Religion Election campaign.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="relative flex gap-6">
+            <div class="number-circle">5</div>
+            <div class="pt-1">
+              <h4 class="text-white font-medium mb-2">Members Elected to FRC</h4>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                Members of each religious community vote to elect their 4 (or 5 including gender-equality allocation) representatives to the <strong class="text-zinc-200">Faith Representative Chamber</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info card -->
+        <div class="flex flex-col gap-6">
+          <div class="spotlight-card p-8 flex-1">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">
+                <i data-lucide="mic" class="w-5 h-5 text-orange-400"></i>
+              </div>
+              <h4 class="text-lg font-medium text-white">Mass Media Coverage</h4>
+            </div>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              The mass media is responsible for broadcasting the Multi-Religion Election campaign, ensuring transparency and public awareness of candidates and their positions.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="tag-pill text-[0.65rem]">TV</span>
+              <span class="tag-pill text-[0.65rem]">Radio</span>
+              <span class="tag-pill text-[0.65rem]">Digital Media</span>
+              <span class="tag-pill text-[0.65rem]">Print</span>
+            </div>
+          </div>
+
+          <div class="spotlight-card p-8 flex-1">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">
+                <i data-lucide="map-pin" class="w-5 h-5 text-orange-400"></i>
+              </div>
+              <h4 class="text-lg font-medium text-white">Voting Locations</h4>
+            </div>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              Religious community premises serve dual purposes: as <strong class="text-zinc-200">voting locations</strong> and as information centres about the religious communities and candidates.
+            </p>
+          </div>
+
+          <div class="spotlight-card p-8 flex-1">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center">
+                <i data-lucide="user-check" class="w-5 h-5 text-orange-400"></i>
+              </div>
+              <h4 class="text-lg font-medium text-white">Voter Eligibility</h4>
+            </div>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              <strong class="text-zinc-200">16 years of age</strong>, regardless of religious affiliation. Members of each faith community vote for their own community's candidates.
+            </p>
+            <a href="https://www.coe.int/en/web/compass/voting-rights" target="_blank" rel="noopener" class="mt-3 text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              Council of Europe: Voting rights
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MANDATE ========== -->
+  <section id="mandate" class="relative py-32 z-10 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+          <i data-lucide="target" class="w-4 h-4 text-orange-400"></i>
+        </div>
+        <span class="text-xs uppercase tracking-widest text-zinc-500 font-semibold">Mandate</span>
+      </div>
+      <h2 class="gradient-title text-3xl md:text-5xl font-medium tracking-tighter mb-6">
+        The Primary Mission
+      </h2>
+      <p class="text-zinc-400 text-lg max-w-3xl mb-16 font-light">
+        Those elected to the FRC carry a clear, dual mandate from the voters.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Mandate 1 -->
+        <div class="spotlight-card p-10 group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 border border-orange-500/20 flex items-center justify-center">
+              <i data-lucide="dove" class="w-6 h-6 text-orange-400"></i>
+            </div>
+            <div class="text-xs text-orange-400 font-semibold uppercase tracking-widest">Mandate 1</div>
+          </div>
+          <h3 class="text-2xl font-medium text-white mb-4 tracking-tight">
+            Resolve the Israel-Palestine Conflict
+          </h3>
+          <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+            The elected members' main task is to <strong class="text-zinc-200">resolve the 78-year-long conflict between Israel and Palestine</strong> so that it is not passed on to the next generation. This is the central purpose of convening representatives from all faith communities.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag-pill text-[0.65rem]">Peace Process</span>
+            <span class="tag-pill text-[0.65rem]">Interfaith Dialogue</span>
+            <span class="tag-pill text-[0.65rem]">Conflict Resolution</span>
+          </div>
+          <div class="pt-6 border-t border-white/5 flex flex-col gap-2">
+            <a href="https://www.un.org/unispal/" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              UN: Question of Palestine
+            </a>
+            <a href="https://www.osce.org/odihr/elections/39703" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              OSCE: Freedom of religion or belief
+            </a>
+          </div>
+        </div>
+
+        <!-- Mandate 2 -->
+        <div class="spotlight-card p-10 group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 border border-orange-500/20 flex items-center justify-center">
+              <i data-lucide="split" class="w-6 h-6 text-orange-400"></i>
+            </div>
+            <div class="text-xs text-orange-400 font-semibold uppercase tracking-widest">Mandate 2</div>
+          </div>
+          <h3 class="text-2xl font-medium text-white mb-4 tracking-tight">
+            Achieve Separation in Practice
+          </h3>
+          <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+            Ensure that the <strong class="text-zinc-200">separation between state and church, and religion and politics</strong>, is achieved in practice — not just in theory. This means completing what the Swedish church reform of 2000 began.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag-pill text-[0.65rem]">Secularism</span>
+            <span class="tag-pill text-[0.65rem]">State Neutrality</span>
+            <span class="tag-pill text-[0.65rem]">Religious Freedom</span>
+          </div>
+          <div class="pt-6 border-t border-white/5 flex flex-col gap-2">
+            <a href="https://www.regeringen.se/informationsmaterial/2019/09/skillnaden-mellan-stat-och-kyrka/" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              The difference between state and church (Swedish Gov.)
+            </a>
+            <a href="https://www.svenskakyrkan.se/om-oss/skillnaden-mellan-stat-och-kyrka" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              Church of Sweden: State-church separation
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance clause -->
+      <div class="mt-8 spotlight-card p-8 md:p-10 border-orange-500/10 bg-orange-500/[0.02]">
+        <div class="flex flex-col md:flex-row md:items-center gap-6">
+          <div class="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="timer-reset" class="w-7 h-7 text-orange-400"></i>
+          </div>
+          <div>
+            <h4 class="text-lg font-medium text-white mb-2">Performance Accountability</h4>
+            <p class="text-zinc-400 text-sm leading-relaxed">
+              If the elected members <strong class="text-zinc-200">fail to achieve one or two solutions after half of the term of office has passed</strong> (2.5 years), they may be <strong class="text-zinc-200">replaced with designated reserves</strong>. The term of office is 5 years. This ensures accountability and momentum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SAFEGUARDS ========== -->
+  <section id="safeguards" class="relative py-32 z-10 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+          <i data-lucide="shield-check" class="w-4 h-4 text-orange-400"></i>
+        </div>
+        <span class="text-xs uppercase tracking-widest text-zinc-500 font-semibold">Integrity</span>
+      </div>
+      <h2 class="gradient-title text-3xl md:text-5xl font-medium tracking-tighter mb-6">
+        Safeguards & Accountability
+      </h2>
+      <p class="text-zinc-400 text-lg max-w-3xl mb-16 font-light">
+        Robust mechanisms to ensure transparency, independence and protection against foreign interference.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Safeguard 1 -->
+        <div class="spotlight-card p-8">
+          <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mb-6">
+            <i data-lucide="eye" class="w-5 h-5 text-orange-400"></i>
+          </div>
+          <h3 class="text-lg font-medium text-white mb-3">Independent Election Observers</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            <strong class="text-zinc-200">Independent election observers</strong> are appointed to monitor the entire election process, ensuring fairness and compliance with democratic standards.
+          </p>
+          <div class="mt-4 pt-4 border-t border-white/5">
+            <a href="https://www.osce.org/odihr/election-observation" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              OSCE Election Observation
+            </a>
+          </div>
+        </div>
+
+        <!-- Safeguard 2 -->
+        <div class="spotlight-card p-8">
+          <div class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mb-6">
+            <i data-lucide="file-search" class="w-5 h-5 text-orange-400"></i>
+          </div>
+          <h3 class="text-lg font-medium text-white mb-3">Financial Transparency</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            The <strong class="text-zinc-200">assets of all religious communities</strong> must be reported and checked by the <strong class="text-zinc-200">tax authorities and auditors</strong>. Full financial transparency is mandatory.
+          </p>
+          <div class="mt-4 pt-4 border-t border-white/5">
+            <a href="https://www.skatteverket.se/" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              Swedish Tax Agency
+            </a>
+          </div>
+        </div>
+
+        <!-- Safeguard 3 -->
+        <div class="spotlight-card p-8 border-red-500/10 hover:border-red-500/20">
+          <div class="w-10 h-10 rounded-full border border-red-500/20 flex items-center justify-center mb-6">
+            <i data-lucide="shield-alert" class="w-5 h-5 text-red-400"></i>
+          </div>
+          <h3 class="text-lg font-medium text-white mb-3">Foreign Interference Ban</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            If a <strong class="text-zinc-200">foreign country tries to influence any religious community</strong>, that religious community <strong class="text-red-300">loses all of its seats in the FRC</strong>. Zero tolerance for foreign interference.
+          </p>
+          <div class="mt-4 pt-4 border-t border-white/5">
+            <a href="https://www.sakerhetspolisen.se/en/threats/subversion/" target="_blank" rel="noopener" class="text-xs text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              Swedish Security Service: Subversion
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TAGS / TOPICS ========== -->
+  <section class="relative py-24 z-10 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="spotlight-card p-8 md:p-12">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+            <i data-lucide="tags" class="w-4 h-4 text-orange-400"></i>
+          </div>
+          <h3 class="text-lg font-medium text-white">Topics & Tags</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="tag-pill">Multi-Religion Election</span>
+          <span class="tag-pill">MRE</span>
+          <span class="tag-pill">Faith Representative Chamber</span>
+          <span class="tag-pill">FRC</span>
+          <span class="tag-pill">Separation of State and Church</span>
+          <span class="tag-pill">Religion and Politics</span>
+          <span class="tag-pill">Israel-Palestine Conflict</span>
+          <span class="tag-pill">Peace Process</span>
+          <span class="tag-pill">Religious Democracy</span>
+          <span class="tag-pill">Interfaith Dialogue</span>
+          <span class="tag-pill">Voting Rights 16</span>
+          <span class="tag-pill">Gender Equality</span>
+          <span class="tag-pill">Women's Representation</span>
+          <span class="tag-pill">Multi-Religion City</span>
+          <span class="tag-pill">Nominating Committee</span>
+          <span class="tag-pill">Foreign Interference</span>
+          <span class="tag-pill">Election Observers</span>
+          <span class="tag-pill">Financial Transparency</span>
+          <span class="tag-pill">Sweden</span>
+          <span class="tag-pill">EU Parliament Election</span>
+          <span class="tag-pill">Secularism</span>
+          <span class="tag-pill">Religious Freedom</span>
+          <span class="tag-pill">Conflict Resolution</span>
+          <span class="tag-pill">Jewish Community</span>
+          <span class="tag-pill">Muslim Community</span>
+          <span class="tag-pill">Christian Community</span>
+          <span class="tag-pill">Buddhist Community</span>
+          <span class="tag-pill">Hindu Community</span>
+          <span class="tag-pill">Non-Religious</span>
+          <span class="tag-pill">Church Election Reform</span>
+          <span class="tag-pill">5-Year Term</span>
+          <span class="tag-pill">Performance Accountability</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED LINKS ========== -->
+  <section class="relative py-24 z-10 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+          <i data-lucide="link-2" class="w-4 h-4 text-orange-400"></i>
+        </div>
+        <span class="text-xs uppercase tracking-widest text-zinc-500 font-semibold">Resources</span>
+      </div>
+      <h2 class="gradient-title text-3xl md:text-5xl font-medium tracking-tighter mb-12">
+        Related Links
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="https://multireligionvalsystem.eu.org/" target="_blank" rel="noopener" class="spotlight-card p-6 flex items-start gap-4 group hover:border-orange-500/20 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="globe" class="w-5 h-5 text-orange-400"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-sm mb-1 group-hover:text-orange-400 transition-colors">MRE System (Main Site)</h4>
+            <p class="text-zinc-600 text-xs">The Multi-Religion Election System framework</p>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-colors flex-shrink-0 mt-1"></i>
+        </a>
+
+        <a href="https://www.valmyndigheten.se/en/" target="_blank" rel="noopener" class="spotlight-card p-6 flex items-start gap-4 group hover:border-orange-500/20 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="vote" class="w-5 h-5 text-zinc-400"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-sm mb-1 group-hover:text-orange-400 transition-colors">Swedish Election Authority</h4>
+            <p class="text-zinc-600 text-xs">Valmyndigheten — official election information</p>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-colors flex-shrink-0 mt-1"></i>
+        </a>
+
+        <a href="https://www.regeringen.se/informationsmaterial/2019/09/skillnaden-mellan-stat-och-kyrka/" target="_blank" rel="noopener" class="spotlight-card p-6 flex items-start gap-4 group hover:border-orange-500/20 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="landmark" class="w-5 h-5 text-zinc-400"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-sm mb-1 group-hover:text-orange-400 transition-colors">State & Church Separation</h4>
+            <p class="text-zinc-600 text-xs">Swedish Government information</p>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-colors flex-shrink-0 mt-1"></i>
+        </a>
+
+        <a href="https://www.un.org/unispal/" target="_blank" rel="noopener" class="spotlight-card p-6 flex items-start gap-4 group hover:border-orange-500/20 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="dove" class="w-5 h-5 text-zinc-400"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-sm mb-1 group-hover:text-orange-400 transition-colors">UN: Question of Palestine</h4>
+            <p class="text-zinc-600 text-xs">United Nations division for Palestinian rights</p>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-colors flex-shrink-0 mt-1"></i>
+        </a>
+
+        <a href="https://www.osce.org/odihr/election-observation" target="_blank" rel="noopener" class="spotlight-card p-6 flex items-start gap-4 group hover:border-orange-500/20 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="eye" class="w-5 h-5 text-zinc-400"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-sm mb-1 group-hover:text-orange-400 transition-colors">OSCE Election Observation</h4>
+            <p class="text-zinc-600 text-xs">Democratic election monitoring</p>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-colors flex-shrink-0 mt-1"></i>
+        </a>
+
+        <a href="https://www.europarl.europa.eu/elections/en/" target="_blank" rel="noopener" class="spotlight-card p-6 flex items-start gap-4 group hover:border-orange-500/20 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="european-flag" class="w-5 h-5 text-zinc-400"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-sm mb-1 group-hover:text-orange-400 transition-colors">EU Parliament Elections</h4>
+            <p class="text-zinc-600 text-xs">European Parliament election information</p>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-colors flex-shrink-0 mt-1"></i>
+        </a>
+
+        <a href="https://www.sakerhetspolisen.se/en/threats/subversion/" target="_blank" rel="noopener" class="spotlight-card p-6 flex items-start gap-4 group hover:border-orange-500/20 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="shield-alert" class="w-5 h-5 text-zinc-400"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-sm mb-1 group-hover:text-orange-400 transition-colors">Säpo: Subversion Threats</h4>
+            <p class="text-zinc-600 text-xs">Swedish Security Service on foreign interference</p>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-colors flex-shrink-0 mt-1"></i>
+        </a>
+
+        <a href="https://www.skatteverket.se/" target="_blank" rel="noopener" class="spotlight-card p-6 flex items-start gap-4 group hover:border-orange-500/20 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="file-search" class="w-5 h-5 text-zinc-400"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-sm mb-1 group-hover:text-orange-400 transition-colors">Swedish Tax Agency</h4>
+            <p class="text-zinc-600 text-xs">Skatteverket — tax and financial oversight</p>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-colors flex-shrink-0 mt-1"></i>
+        </a>
+
+        <a href="https://www.coe.int/en/web/compass/voting-rights" target="_blank" rel="noopener" class="spotlight-card p-6 flex items-start gap-4 group hover:border-orange-500/20 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="scale" class="w-5 h-5 text-zinc-400"></i>
+          </div>
+          <div>
+            <h4 class="text-white font-medium text-sm mb-1 group-hover:text-orange-400 transition-colors">CoE: Voting Rights</h4>
+            <p class="text-zinc-600 text-xs">Council of Europe human rights compass</p>
+          </div>
+          <i data-lucide="arrow-up-right" class="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-colors flex-shrink-0 mt-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="relative z-10 border-t border-white/5 py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+              <i data-lucide="vote" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="text-white font-medium">Multi-Religion Election</span>
+          </div>
+          <p class="text-zinc-600 text-sm leading-relaxed">
+            The practical application of the Multi-Religion Election System — building democratic faith representation for peace and secular governance.
+          </p>
+        </div>
+
+        <!-- Quick links -->
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-4">On This Page</h4>
+          <div class="flex flex-col gap-2">
+            <a href="#overview" class="text-sm text-zinc-500 hover:text-orange-400 transition-colors">Overview</a>
+            <a href="#frc" class="text-sm text-zinc-500 hover:text-orange-400 transition-colors">FRC Structure</a>
+            <a href="#process" class="text-sm text-zinc-500 hover:text-orange-400 transition-colors">Election Process</a>
+            <a href="#mandate" class="text-sm text-zinc-500 hover:text-orange-400 transition-colors">Primary Mandate</a>
+            <a href="#safeguards" class="text-sm text-zinc-500 hover:text-orange-400 transition-colors">Safeguards</a>
+          </div>
+        </div>
+
+        <!-- External -->
+        <div>
+          <h4 class="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-4">External Resources</h4>
+          <div class="flex flex-col gap-2">
+            <a href="https://multireligionvalsystem.eu.org/" target="_blank" rel="noopener" class="text-sm text-zinc-500 hover:text-orange-400 transition-colors">MRE System →</a>
+            <a href="https://www.valmyndigheten.se/en/" target="_blank" rel="noopener" class="text-sm text-zinc-500 hover:text-orange-400 transition-colors">Swedish Election Authority →</a>
+            <a href="https://www.un.org/unispal/" target="_blank" rel="noopener" class="text-sm text-zinc-500 hover:text-orange-400 transition-colors">UN: Palestine →</a>
+            <a href="https://www.osce.org/odihr/election-observation" target="_blank" rel="noopener" class="text-sm text-zinc-500 hover:text-orange-400 transition-colors">OSCE Observers →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-zinc-700 text-xs">
+          © <span id="year"></span> Multi-Religion Election System. All rights reserved.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="https://multireligionvalsystem.eu.org/" target="_blank" rel="noopener" class="text-zinc-700 text-xs hover:text-zinc-400 transition-colors">Main Site</a>
+          <span class="text-zinc-800">·</span>
+          <a href="https://a-multi-religion-election.multireligionvalsystem.eu.org/" class="text-zinc-700 text-xs hover:text-zinc-400 transition-colors">MRE Election</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Spotlight card mouse tracking
+    document.querySelectorAll('.spotlight-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', x + 'px');
+        card.style.setProperty('--y', y + 'px');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Intersection Observer for fade-in animations on scroll
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections for subtle entrance
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
+    });
+
+    // Make footer visible immediately
+    document.querySelector('footer').style.opacity = '1';
+    document.querySelector('footer').style.transform = 'none';
+  </script>
+
+</body>
+</html>
