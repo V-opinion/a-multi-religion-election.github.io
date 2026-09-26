@@ -1,6 +1,6 @@
-mre-visit-us_html_files
-mre-visit-us.html
-mre-visit-us_html_files/1.webp
-mre-visit-us_html_files/3.webp
-mre-visit-us_html_files/xara_font_1.woff
-mre-visit-us_html_files/xara_font_2.woff
+https://a-multi-relegion-election.multireligionvalsystem.eu.org/visit-us/
+https://a-multi-relegion-election.multireligionvalsystem.eu.org/visit-us//mre-visit-us.html
+https://a-multi-relegion-election.multireligionvalsystem.eu.org/visit-us/1.webp
+https://a-multi-relegion-election.multireligionvalsystem.eu.org/visit-us/3.webp
+https://a-multi-relegion-election.multireligionvalsystem.eu.org/visit-us/xara_font_1.woff
+https://a-multi-relegion-election.multireligionvalsystem.eu.org/visit-us/xara_font_2.woff
